@@ -27,4 +27,3 @@ yarn-error.log*
 
 # example env file
 /backend/.env
-/backend/.env.example
