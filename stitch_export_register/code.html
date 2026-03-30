@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Join SIMS | Startup Idea Management System</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-container": "#7594ca",
+                        "surface-variant": "#e1e2eb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#43474f",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#001b3d",
+                        "surface-container-highest": "#e1e2eb",
+                        "on-tertiary-fixed-variant": "#5e4200",
+                        "secondary": "#006a64",
+                        "background": "#f9f9ff",
+                        "on-secondary-container": "#006f69",
+                        "tertiary-fixed": "#ffdea8",
+                        "secondary-fixed-dim": "#50dad1",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "surface-container-high": "#e7e7f0",
+                        "on-error": "#ffffff",
+                        "primary": "#001736",
+                        "on-background": "#191b22",
+                        "outline-variant": "#c4c6d0",
+                        "tertiary-container": "#3c2800",
+                        "surface-tint": "#405f91",
+                        "on-secondary-fixed-variant": "#00504b",
+                        "on-tertiary-container": "#bf8900",
+                        "primary-fixed": "#d6e3ff",
+                        "tertiary": "#211500",
+                        "surface": "#f9f9ff",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#f9f9ff",
+                        "outline": "#747780",
+                        "secondary-container": "#6ef4ea",
+                        "surface-dim": "#d9d9e2",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#a9c7ff",
+                        "tertiary-fixed-dim": "#ffba20",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#ededf6",
+                        "inverse-on-surface": "#f0f0f9",
+                        "primary-container": "#002b5b",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f3f3fc",
+                        "on-secondary-fixed": "#00201e",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191b22",
+                        "on-primary-fixed-variant": "#264778",
+                        "inverse-surface": "#2e3037",
+                        "on-tertiary-fixed": "#271900",
+                        "secondary-fixed": "#72f7ed"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9ff;
+            color: #191b22;
+        }
+        h1, h2, h3 {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-white/80 dark:bg-slate-950/80 backdrop-blur-md sticky top-0 z-50 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white">SIMS</div>
+<div class="flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors Inter 600 tracking-wider uppercase text-[11px]" href="#">Sign In</a>
+<a class="bg-primary text-on-primary px-5 py-2 rounded-lg hover:bg-primary-container transition-all scale-95 active:opacity-80 Inter 600 tracking-wider uppercase text-[11px]" href="#">Join</a>
+</div>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center px-6 py-24">
+<div class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+<!-- Left Side: Editorial Content -->
+<div class="lg:col-span-5 space-y-8">
+<div>
+<span class="label-sm uppercase tracking-[0.05em] text-secondary font-semibold text-[0.6875rem] mb-4 block">Editorial Intelligence</span>
+<h1 class="text-[3.5rem] leading-[1.1] font-extrabold text-primary tracking-tight">The future of ideas, curated.</h1>
+</div>
+<p class="text-on-surface-variant text-lg leading-relaxed max-w-md">
+                    Join an elite ecosystem where visionary entrepreneurs and institutional investors bridge the gap between concept and capital.
+                </p>
+<div class="pt-4 flex items-center gap-4">
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-surface shadow-sm" data-alt="portrait of a professional male executive in a grey suit with soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtchmyohOhmSFFadufZOyjAXDWlS3afhLBHfl8K1Rke028GPQTNgtVKGalVIQ53czUtJSVpTx8zWTdW1XIluh-3nZt7Ltl9z2VEZsmNjwMSwZNd24YxMVj4odDcpK2mpPa9hweroenpSLKmqopd7CZzFYD1PfLv64DP6jOtHsS-EgpjW5HO3VH2Bsm9-3gp5dxe4yM4aOiZX5dyUEd_CNQ1zmju7INOJ9aoAVnCJUY_Ds1mXsOi-YZqaTXM5vy-u_DlFNLYDszsruK"/>
+<img class="w-10 h-10 rounded-full border-2 border-surface shadow-sm" data-alt="smiling professional woman with glasses in a modern office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNVm9a33d8szwOfO-44BNdXbj3mX8q7kTak0xjHkFP7sKgaUy0dwxQEXUooNWjQ5-54AtZRqrc1blY1OFQs_Nn4IRRdjQQBdL4laInnPm73U2WrQ9e_LC3qj_rlQ55DI2iYVU5MSZvJO-JrVQ83T8PzC8jMGKtYw8G98d83gksYFaOZS5afQReH-azO8kUYC92C9jm9xhUrnfHNbtCZSKfloT7rQ1FnHePkVaAhp1gJNVrCPansB7G-Ql4zZXjmGB4pSJngzGz3PuS"/>
+<img class="w-10 h-10 rounded-full border-2 border-surface shadow-sm" data-alt="middle-aged male investor in a business casual outfit with a blurred corporate background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgkRELuEh3uyurxwrRKGXza_bEYE72wJ2pGyb7PpXRLgB_4vVN7Pp0lNrYOtVOje8eF75V_dofCHz7RenOk6BEC1Cl0NoSd0itbt70u7pZ3TQEykT3-jujaotZ1xwpeRne6VCVlNeUtZnqfojeY8Hy07hniTEa3bCOubj3QO24pS7I81bqzMYpTnzigXK8-UayJbjROx4v82prg5rpieUJ0CMdgfHtWMi-Qj-3p7dYWXRmKq8eeFCxWKp0LTyohBbGUPumRQOuDxD2"/>
+</div>
+<p class="text-sm font-medium text-on-surface-variant">Trusted by 500+ global visionaries</p>
+</div>
+</div>
+<!-- Right Side: Registration Form Card -->
+<div class="lg:col-span-7">
+<div class="bg-surface-container-lowest p-10 rounded-xl shadow-[0px_12px_32px_rgba(25,27,34,0.06)] border-none relative overflow-hidden">
+<!-- Accent Line -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+<div class="mb-10">
+<h2 class="text-2xl font-bold text-primary mb-2">Create your account</h2>
+<p class="text-on-surface-variant text-sm">Select your professional path to begin.</p>
+</div>
+<form class="space-y-8">
+<!-- Role Selection -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<label class="cursor-pointer group">
+<input checked="" class="peer hidden" name="role" type="radio" value="entrepreneur"/>
+<div class="p-6 rounded-xl bg-surface-container-low border border-transparent transition-all peer-checked:bg-secondary-container peer-checked:ring-1 peer-checked:ring-secondary/20">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+<span class="font-bold text-primary">Entrepreneur</span>
+</div>
+<p class="text-[11px] leading-tight text-on-surface-variant">Launch projects and gain traction immediately.</p>
+</div>
+</label>
+<label class="cursor-pointer group">
+<input class="peer hidden" name="role" type="radio" value="investor"/>
+<div class="p-6 rounded-xl bg-surface-container-low border border-transparent transition-all peer-checked:bg-primary-container group-hover:bg-surface-container-high">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary group-peer-checked:text-primary-fixed" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+<span class="font-bold text-primary group-peer-checked:text-white">Investor</span>
+</div>
+<p class="text-[11px] leading-tight text-on-surface-variant group-peer-checked:text-primary-fixed-dim">Access curated deals and editorial intelligence.</p>
+</div>
+</label>
+</div>
+<!-- Fields -->
+<div class="space-y-5">
+<div class="group">
+<label class="block label-sm uppercase tracking-wider text-on-surface-variant mb-2 font-semibold">Full Name</label>
+<input class="w-full px-4 py-3 bg-surface-container-highest rounded-lg border-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline transition-all" placeholder="Alex Sterling" type="text"/>
+</div>
+<div class="group">
+<label class="block label-sm uppercase tracking-wider text-on-surface-variant mb-2 font-semibold">Corporate Email</label>
+<input class="w-full px-4 py-3 bg-surface-container-highest rounded-lg border-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline transition-all" placeholder="alex@sterling-capital.com" type="email"/>
+</div>
+<div class="group">
+<label class="block label-sm uppercase tracking-wider text-on-surface-variant mb-2 font-semibold">Security Password</label>
+<input class="w-full px-4 py-3 bg-surface-container-highest rounded-lg border-none focus:ring-2 focus:ring-secondary/40 placeholder:text-outline transition-all" placeholder="••••••••••••" type="password"/>
+</div>
+</div>
+<!-- Contextual Notes -->
+<div class="p-4 rounded-lg bg-surface-container-low flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">info</span>
+<div class="space-y-1">
+<!-- Visible based on role selection logic - here we show both styled for the purpose of the UI template -->
+<p class="text-[12px] text-on-surface leading-relaxed">
+<span class="font-bold">Investor Note:</span> Your institutional account will require manual activation by our editorial board (24-48h).
+                                </p>
+<p class="text-[12px] text-secondary font-medium italic">
+                                    Entrepreneurs: You can start building your first idea pipeline immediately after email verification.
+                                </p>
+</div>
+</div>
+<button class="w-full py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-lg shadow-lg hover:shadow-xl transition-all active:scale-95 uppercase tracking-widest text-xs" type="submit">
+                            Create Intelligence Account
+                        </button>
+</form>
+<p class="mt-8 text-center text-xs text-on-surface-variant">
+                        By registering, you agree to our <a class="underline hover:text-secondary" href="#">Terms of Service</a> and <a class="underline hover:text-secondary" href="#">Privacy Policy</a>.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-900 py-12 px-6 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center w-full max-w-7xl mx-auto gap-8">
+<div class="flex flex-col items-center md:items-start gap-2">
+<div class="text-lg font-bold text-slate-900 dark:text-white">SIMS</div>
+<p class="text-slate-500 dark:text-slate-400 text-xs tracking-tight">© 2024 SIMS Editorial Intelligence. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-teal-500 transition-colors Inter 600 uppercase text-[10px]" href="#">Terms of Service</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-teal-500 transition-colors Inter 600 uppercase text-[10px]" href="#">Privacy Policy</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-teal-500 transition-colors Inter 600 uppercase text-[10px]" href="#">Contact Support</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-teal-500 transition-colors Inter 600 uppercase text-[10px]" href="#">About Us</a>
+</div>
+</div>
+</footer>
+</body></html>

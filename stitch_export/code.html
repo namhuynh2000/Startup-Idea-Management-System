@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SIMS | Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-container": "#7594ca",
+              "surface-variant": "#e1e2eb",
+              "surface-container-lowest": "#ffffff",
+              "on-surface-variant": "#43474f",
+              "on-primary": "#ffffff",
+              "on-primary-fixed": "#001b3d",
+              "surface-container-highest": "#e1e2eb",
+              "on-tertiary-fixed-variant": "#5e4200",
+              "secondary": "#006a64",
+              "background": "#f9f9ff",
+              "on-secondary-container": "#006f69",
+              "tertiary-fixed": "#ffdea8",
+              "secondary-fixed-dim": "#50dad1",
+              "primary-fixed-dim": "#a9c7ff",
+              "surface-container-high": "#e7e7f0",
+              "on-error": "#ffffff",
+              "primary": "#001736",
+              "on-background": "#191b22",
+              "outline-variant": "#c4c6d0",
+              "tertiary-container": "#3c2800",
+              "surface-tint": "#405f91",
+              "on-secondary-fixed-variant": "#00504b",
+              "on-tertiary-container": "#bf8900",
+              "primary-fixed": "#d6e3ff",
+              "tertiary": "#211500",
+              "surface": "#f9f9ff",
+              "on-error-container": "#93000a",
+              "surface-bright": "#f9f9ff",
+              "outline": "#747780",
+              "secondary-container": "#6ef4ea",
+              "surface-dim": "#d9d9e2",
+              "error-container": "#ffdad6",
+              "inverse-primary": "#a9c7ff",
+              "tertiary-fixed-dim": "#ffba20",
+              "on-secondary": "#ffffff",
+              "surface-container": "#ededf6",
+              "inverse-on-surface": "#f0f0f9",
+              "primary-container": "#002b5b",
+              "error": "#ba1a1a",
+              "surface-container-low": "#f3f3fc",
+              "on-secondary-fixed": "#00201e",
+              "on-tertiary": "#ffffff",
+              "on-surface": "#191b22",
+              "on-primary-fixed-variant": "#264778",
+              "inverse-surface": "#2e3037",
+              "on-tertiary-fixed": "#271900",
+              "secondary-fixed": "#72f7ed"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased min-h-screen">
+<main class="flex min-h-screen overflow-hidden">
+<section class="hidden lg:flex lg:w-1/2 relative flex-col justify-between p-16 bg-primary overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Abstract Intelligence" class="w-full h-full object-cover opacity-60" data-alt="Abstract visualization of digital intelligence with glowing neural network lines, deep navy and teal gradients, smooth light trails, and organic flowing particles." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtF21O3Xajr3OuKJi8dTt1IgGjqG2AhvPksGnxFU0txVInZwllhATsKIW6Yg0vezNvZmBuKLlALlLtfHXBcsZugnf1kG3TbgI5z-GN6xB_r-9QbwhOUpp3WXkNpyan_2o1FoD8ouSfuAy2gx9sHriV_OoOHh3SgtD0HvCbQe9wBSjPpsqQXsTR79JTTf433nr1lHT0rYxJKRDldWUjj2RqDBStCIq-Fps_0utFxSwShVHApIFO-SVE7_zIe3GGdcmLabWkDUmq84gv"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-primary via-primary/80 to-transparent"></div>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-3">
+<span class="text-3xl font-black tracking-tighter text-white font-headline">SIMS</span>
+</div>
+</div>
+<div class="relative z-10 max-w-lg">
+<h1 class="font-headline text-5xl font-extrabold text-white leading-tight mb-6">
+                    Curating the Future of <span class="text-secondary-fixed">Startup Intelligence</span>.
+                </h1>
+<p class="text-primary-fixed text-lg font-light leading-relaxed mb-8">
+                    Access our high-end editorial gallery for startup management. Manage, track, and score ideas with institutional precision.
+                </p>
+<div class="flex items-center gap-4">
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-primary object-cover" data-alt="portrait of a professional analyst in a high-end corporate setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBggel5Fk9mAPSTfcRlsBYC-yI_e2fS_88Oex75k2UKGcI5kroH3cL6JLLWOmwGi0fhUaUlcMXtF_ugo2Kh2iMMWYiFKFyhELbGxTDifp72RHU-DuwSGheB-H1H0zu0ZvXA-VUzZ05yqOZ2eTFNsG6fzwtzAfEuRmMXYnh-tg88ckOp043kDtfatunwO8yzfxB6ixQRk2J2OSOHlOdJ_cZ1w6LkNTMj0gaJtK6_ufbCh2f1QaPxRHbx53X8fcbG8I9WY3CunWOnYLpo"/>
+<img class="w-10 h-10 rounded-full border-2 border-primary object-cover" data-alt="portrait of a tech executive looking confident with a clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNBcp4FVmmY36abguRrISStZ1Lt7fD31pGDrgKQ5U1tL8Ijej3GyoWboNXCE8mBTJ78k5nAgXJPSQcTdReBYjOhyLVMYuYYcA1cvBMust42985RYmK6jIyNig-RTK3C2fMsc1OQIFoJ7qhx_vsvm41b3zu-9Dz1gTrWaXFfeWO8yfucdJcUbAVWdGbQqLAcFRkFu80va2xKifkdcyV5_NuYjcz2PZUSZvYf-V_V_EnwKtB4ZpdapN35ObYf4hlPOd1vaOMb80qSPxg"/>
+<img class="w-10 h-10 rounded-full border-2 border-primary object-cover" data-alt="smiling female creative director portrait in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4Tc2BAXv1X_N8dNM1-j4t90qKW66HdFIWt38TScy61v5UEuwvr-bYRz0nbl5hoFiA8ra_fJSvI3gLOULgNpm-epQeO9vgkRhXkeD97avB_kWSAEVdmQ2V2Q3ggqKKx7A5J3kiqmHTl8MjjxvrsKIXIvMumW1HTjZ1eqt73JaA9Vi-IH3IY154xd_nDM38N4_QVo3Fqj9I-aJMVVq5_znUpFahhVwDLJanPF8WHL0s6ro2TD_AaXWK0-X6Fsto-InCT6h2B6jnFEnF"/>
+</div>
+<span class="text-primary-fixed-dim text-sm font-label tracking-wide uppercase">Trusted by 500+ VC Partners</span>
+</div>
+</div>
+<div class="relative z-10 flex gap-8">
+<div>
+<span class="block text-2xl font-headline font-bold text-white tracking-tight">1.2B+</span>
+<span class="text-primary-fixed text-[10px] font-label uppercase tracking-widest">Capital Analyzed</span>
+</div>
+<div>
+<span class="block text-2xl font-headline font-bold text-white tracking-tight">14k</span>
+<span class="text-primary-fixed text-[10px] font-label uppercase tracking-widest">Ideas Scored</span>
+</div>
+</div>
+</section>
+<section class="w-full lg:w-1/2 flex items-center justify-center p-8 sm:p-12 md:p-24 bg-surface">
+<div class="w-full max-w-md space-y-10">
+<div class="lg:hidden mb-12">
+<span class="text-2xl font-black tracking-tighter text-primary font-headline">SIMS</span>
+</div>
+<div class="space-y-3">
+<span class="font-label text-[11px] font-bold text-secondary uppercase tracking-[0.2em]">Institutional Access</span>
+<h2 class="font-headline text-4xl font-extrabold text-on-surface tracking-tight">Welcome Back</h2>
+<p class="text-on-surface-variant text-sm font-body">Please enter your credentials to access the SIMS editorial dashboard.</p>
+</div>
+<form class="space-y-6">
+<div class="space-y-2">
+<label class="block font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-wider" for="email">Email Address</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+<input class="block w-full pl-11 pr-4 py-4 bg-surface-container-highest border-none rounded-xl focus:ring-2 focus:ring-secondary/40 focus:bg-surface-container-low transition-all text-on-surface placeholder-outline/50 font-body text-sm" id="email" name="email" placeholder="name@organization.com" required="" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="block font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-wider" for="password">Password</label>
+<a class="text-[10px] font-label font-bold text-secondary uppercase tracking-wider hover:text-on-secondary-container transition-colors" href="#">Forgot Password?</a>
+</div>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+<input class="block w-full pl-11 pr-4 py-4 bg-surface-container-highest border-none rounded-xl focus:ring-2 focus:ring-secondary/40 focus:bg-surface-container-low transition-all text-on-surface placeholder-outline/50 font-body text-sm" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+<div class="flex items-center">
+<input class="h-4 w-4 rounded border-outline-variant/40 text-secondary focus:ring-secondary bg-surface-container" id="remember-me" name="remember-me" type="checkbox"/>
+<label class="ml-3 block text-sm font-body text-on-surface-variant" for="remember-me">Stay authenticated for 30 days</label>
+</div>
+<div class="pt-2">
+<button class="w-full flex justify-center items-center gap-2 py-4 px-6 bg-gradient-to-r from-primary to-primary-container text-white font-label font-bold text-[13px] uppercase tracking-widest rounded-xl hover:shadow-lg hover:shadow-primary/20 active:scale-[0.98] transition-all" type="submit">
+                            Sign In
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</form>
+<div class="relative flex py-4 items-center">
+<div class="flex-grow border-t border-outline-variant/20"></div>
+<span class="flex-shrink mx-4 font-label text-[10px] text-outline uppercase tracking-widest">or continue with</span>
+<div class="flex-grow border-t border-outline-variant/20"></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-3 py-3 px-4 bg-surface-container-lowest rounded-xl border border-outline-variant/20 hover:bg-surface-container-low transition-colors group">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+<span class="text-xs font-label font-bold uppercase tracking-tight text-on-surface-variant">Google</span>
+</button>
+<button class="flex items-center justify-center gap-3 py-3 px-4 bg-surface-container-lowest rounded-xl border border-outline-variant/20 hover:bg-surface-container-low transition-colors group">
+<svg class="w-5 h-5 text-on-surface" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"></path>
+</svg>
+<span class="text-xs font-label font-bold uppercase tracking-tight text-on-surface-variant">SSO</span>
+</button>
+</div>
+<div class="pt-8 text-center">
+<p class="text-sm font-body text-on-surface-variant">
+                        New to the platform? 
+                        <a class="ml-1 font-label font-bold text-secondary uppercase tracking-wider hover:underline underline-offset-4" href="#">Sign up instead</a>
+</p>
+</div>
+<footer class="pt-12 flex justify-center gap-6">
+<a class="font-label text-[10px] text-outline uppercase tracking-[0.15em] hover:text-secondary transition-colors" href="#">Privacy</a>
+<a class="font-label text-[10px] text-outline uppercase tracking-[0.15em] hover:text-secondary transition-colors" href="#">Terms</a>
+<a class="font-label text-[10px] text-outline uppercase tracking-[0.15em] hover:text-secondary transition-colors" href="#">Support</a>
+</footer>
+</div>
+</section>
+</main>
+</body></html>

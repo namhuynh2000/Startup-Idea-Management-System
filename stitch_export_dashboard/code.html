@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SIMS - Entrepreneur Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#ffdea8",
+              "secondary-fixed-dim": "#50dad1",
+              "on-tertiary-container": "#bf8900",
+              "on-background": "#191b22",
+              "tertiary-fixed-dim": "#ffba20",
+              "on-primary-fixed": "#001b3d",
+              "primary": "#001736",
+              "primary-fixed-dim": "#a9c7ff",
+              "surface-dim": "#d9d9e2",
+              "on-primary-container": "#7594ca",
+              "on-primary-fixed-variant": "#264778",
+              "secondary-fixed": "#72f7ed",
+              "on-secondary-container": "#006f69",
+              "surface": "#f9f9ff",
+              "surface-variant": "#e1e2eb",
+              "on-secondary-fixed-variant": "#00504b",
+              "on-tertiary-fixed-variant": "#5e4200",
+              "inverse-on-surface": "#f0f0f9",
+              "surface-bright": "#f9f9ff",
+              "inverse-primary": "#a9c7ff",
+              "on-secondary-fixed": "#00201e",
+              "primary-container": "#002b5b",
+              "surface-container": "#ededf6",
+              "secondary-container": "#6ef4ea",
+              "on-secondary": "#ffffff",
+              "secondary": "#006a64",
+              "error": "#ba1a1a",
+              "primary-fixed": "#d6e3ff",
+              "on-tertiary-fixed": "#271900",
+              "surface-container-low": "#f3f3fc",
+              "surface-tint": "#405f91",
+              "surface-container-highest": "#e1e2eb",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "background": "#f9f9ff",
+              "on-primary": "#ffffff",
+              "outline": "#747780",
+              "inverse-surface": "#2e3037",
+              "tertiary": "#211500",
+              "surface-container-lowest": "#ffffff",
+              "on-surface-variant": "#43474f",
+              "on-tertiary": "#ffffff",
+              "on-error-container": "#93000a",
+              "tertiary-container": "#3c2800",
+              "on-surface": "#191b22",
+              "outline-variant": "#c4c6d0",
+              "surface-container-high": "#e7e7f0"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      .font-headline {
+        font-family: 'Manrope', sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl sticky top-0 z-50 shadow-sm dark:shadow-none w-full border-b-0">
+<div class="flex justify-between items-center w-full px-6 py-3 max-w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-blue-950 dark:text-white font-headline">SIMS</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-blue-900 dark:text-blue-400 font-semibold border-b-2 border-blue-900 dark:border-blue-400 pb-1 font-body text-sm" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-800 dark:hover:text-slate-200 transition-colors font-body text-sm" href="#">Marketplace</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-blue-800 dark:hover:text-slate-200 transition-colors font-body text-sm" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+<input class="bg-surface-container-highest border-none rounded-md pl-10 pr-4 py-2 text-sm w-64 focus:ring-1 focus:ring-secondary/40" placeholder="Search ideas..." type="text"/>
+</div>
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-900/50 rounded-full transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-900/50 rounded-full transition-all">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<img alt="User profile avatar" class="w-8 h-8 rounded-full border border-surface-container-highest" data-alt="Portrait of a professional man for user profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfiuwbjs-K7JHzwLlWD2_dLMOuHa3UmEUB7bk46RuqrXIxELKTbhRl595XZ5rw82YzW7mnxQrDDEDwo-GU3Z7dgq0yvs8IUqrMd-Vd_D9z6v07t2JeolIM6PGOuSi47KszwcD4axqlUnryT9z2feVDFjWA_6ybMtAdj1LXvc-i6ApCIFvNC8RdmwuS396lhfHGzoibSnp_BDPtQSrF_2W-ybE3OBsF0TlfCf0kCvuscpwu6tzmkExgKxSbiiVjyEgQKcm52yu9la3w"/>
+</div>
+</div>
+<div class="bg-slate-100 dark:bg-slate-800 h-[1px] w-full"></div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-slate-50 dark:bg-slate-900 hidden md:block pt-16">
+<div class="flex flex-col h-full p-4 gap-2">
+<div class="mb-6 px-4">
+<h2 class="font-headline font-semibold text-lg text-blue-950 dark:text-white">Project Hub</h2>
+<p class="font-body text-xs text-slate-500">Managing 4 Ideas</p>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 bg-white dark:bg-slate-800 text-teal-700 dark:text-teal-300 rounded-lg px-4 py-3 shadow-sm transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+<span class="font-body text-sm font-medium">My Projects</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:translate-x-1 transition-transform hover:bg-slate-200/50 dark:hover:bg-slate-800/50" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body text-sm font-medium">Team</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:translate-x-1 transition-transform hover:bg-slate-200/50 dark:hover:bg-slate-800/50" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-body text-sm font-medium">Funding</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:translate-x-1 transition-transform hover:bg-slate-200/50 dark:hover:bg-slate-800/50" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-body text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:translate-x-1 transition-transform hover:bg-slate-200/50 dark:hover:bg-slate-800/50" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-body text-sm font-medium">Messages</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1 border-t border-slate-200 dark:border-slate-800 pt-4">
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:translate-x-1 transition-transform hover:bg-slate-200/50 dark:hover:bg-slate-800/50" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body text-sm font-medium">Help Center</span>
+</a>
+<a class="flex items-center gap-3 text-slate-600 dark:text-slate-400 px-4 py-3 hover:translate-x-1 transition-transform hover:bg-slate-200/50 dark:hover:bg-slate-800/50" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body text-sm font-medium">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 p-6 md:p-10 lg:p-16 bg-surface-container-low min-h-screen">
+<!-- Header Section -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+<div>
+<span class="font-label text-[10px] uppercase tracking-wider text-secondary font-bold mb-2 block">Entrepreneur Workspace</span>
+<h1 class="font-headline text-5xl font-extrabold text-primary tracking-tight">Overview</h1>
+</div>
+<button class="bg-gradient-to-r from-primary to-primary-container text-white px-8 py-4 rounded-lg font-body font-semibold flex items-center gap-3 shadow-lg hover:opacity-90 transition-opacity self-start lg:self-auto">
+<span class="material-symbols-outlined">add_circle</span>
+                    Launch New Campaign
+                </button>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Main Project Gallery -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<div class="flex items-center justify-between mb-2 px-2">
+<h3 class="font-headline text-xl font-bold text-primary">Active Projects</h3>
+<span class="font-label text-xs font-bold text-outline uppercase tracking-widest">4 Total</span>
+</div>
+<!-- Project Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl flex flex-col md:flex-row gap-6 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+<div class="w-full md:w-48 h-32 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Idea Visual" class="w-full h-full object-cover" data-alt="Abstract visualization of a tech project concept" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0xpdGPxQmwibWCVWOwAlXWhu4Nt_xvLu3lBa3hZT8N0c4rpBiDSqGRl-hiEgLieRwcFUq_syzdhd236BZOL_fYHFAtWt5MFtpLpeYcHf5PD09DdovuaEtFkNAJR99O03u6F5ckOUIsWLWQWIr3BKn5n_Q_yCXjwQf3RSEGY5fRE02pjHX-a30VGeCUrE3-3zDRnccB80K5qi-R2XWknLN3cLkYW8zL5zxj8tWDpaCecDaYBv6waIQayIh84zEFRW5hWmFK1PXs2co"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h4 class="font-headline text-xl font-bold text-primary">Quant-X Algorithm</h4>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full font-label text-[10px] font-bold uppercase">Public</span>
+</div>
+<p class="font-body text-sm text-on-surface-variant line-clamp-1">Decentralized risk assessment engine for emerging markets.</p>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline font-bold text-primary">4.8</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex justify-between items-end mb-2">
+<span class="font-label text-[11px] font-bold text-outline uppercase tracking-wider">Funding Progress</span>
+<span class="font-headline text-sm font-bold text-primary">$1.2M <span class="text-outline font-normal">/ $2M</span></span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 60%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl flex flex-col md:flex-row gap-6 relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="w-full md:w-48 h-32 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Idea Visual" class="w-full h-full object-cover" data-alt="Office workspace with charts and documents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhTH2ME3Br3SPEPkE0cpCU3nGdEJvyMv8bYOhOccvQzHpV3TimVZXWTF-v5nl2tOs-oPRmpQpWp-claS2EzWGDdFOQ8tKu-gChzNcsTkwGCwcm4AV5qIHVvV75Ed-D_M-iFVG5VBHdIlvAKU_TV0i1VH0IhyNQORmjvOyGnF1bOql-ZpkUxloOh1qOIdmJbWZUMnrSpSgzMMq3wzxp1X9OlzGF3zlJS89q2Hmhb685kHOzcjt65wr1vo66Q_X63qf9EyLWeTc4xV79"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h4 class="font-headline text-xl font-bold text-primary">Eco-Logistics 2.0</h4>
+<span class="px-3 py-1 bg-primary-container text-primary-fixed rounded-full font-label text-[10px] font-bold uppercase">Private</span>
+</div>
+<p class="font-body text-sm text-on-surface-variant line-clamp-1">Zero-emission last-mile delivery network using swarm AI.</p>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline font-bold text-primary">4.2</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex justify-between items-end mb-2">
+<span class="font-label text-[11px] font-bold text-outline uppercase tracking-wider">Funding Progress</span>
+<span class="font-headline text-sm font-bold text-primary">$850k <span class="text-outline font-normal">/ $1M</span></span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl flex flex-col md:flex-row gap-6 relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary-fixed-dim"></div>
+<div class="w-full md:w-48 h-32 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Idea Visual" class="w-full h-full object-cover" data-alt="Laptop screen showing business data" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRVbfoegzS93gPpsgN_Xagg_-7JZpkk0PmMfKl7F1qANb8kbRw-QuuLnH1FlZ9fA_5a-VppgaTqeCygobvnWDFU7-_Hsz7NIxwLBxI_cq8vrSyJUh8_1XzG12zAxMLcpNXjAn7LgYf9GP5eI-6pd2JztxRQ_QMYQxWmThJwsjGgZpGGswpT3Jyi4n9j5Zgg8M3pqUo4ejP6DL4uuDmBkqeYSuS6LHQpXNzRjiwmE4UQiwgI2jVK0tSsqfp32WbZlwJu4P8_HWeMRQk"/>
+</div>
+<div class="flex-1 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-3 mb-1">
+<h4 class="font-headline text-xl font-bold text-primary">Lumina SaaS</h4>
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full font-label text-[10px] font-bold uppercase">Hybrid</span>
+</div>
+<p class="font-body text-sm text-on-surface-variant line-clamp-1">Internal automation tools for manufacturing scaling.</p>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-headline font-bold text-primary">3.9</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex justify-between items-end mb-2">
+<span class="font-label text-[11px] font-bold text-outline uppercase tracking-wider">Funding Progress</span>
+<span class="font-headline text-sm font-bold text-primary">$120k <span class="text-outline font-normal">/ $500k</span></span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed-dim rounded-full" style="width: 24%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Panel: Recent Activity & Community -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Recent Comments -->
+<div class="bg-surface-container-lowest p-6 rounded-xl h-full flex flex-col">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary">forum</span>
+<h3 class="font-headline text-xl font-bold text-primary">Recent Feedback</h3>
+</div>
+<div class="space-y-6 flex-1">
+<!-- Comment 1 -->
+<div class="flex gap-4">
+<img alt="Investor avatar" class="w-10 h-10 rounded-full flex-shrink-0" data-alt="Portrait of a female investor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbR4oQTBxAS1X0wIWJRbQzJP4R8VxD7Tcpc0amf9bPHW4MQKgsO0ZJU1DQYVthR9NYKz0IDa9Fxmoj46ELm_hdxw4bV4TeAxr7yvC8yJcWpnegS0VuqvoMMTMBR5F2K2yeZEyOsKJACXUMAYBPc1ksN2iOeOVqRQgq4rnNb5bp8vRDAuMB-fDThqaL1njke-TAPiegF2WqEVwQwEXGIo8jdjTLJ_fmCclOFL5hE2ayX56NuBUmmU8Wxw1gvglPvzUBBdG0bGJnb4S6"/>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-body text-sm font-bold text-primary">Elena Rodriguez</span>
+<span class="font-label text-[10px] text-outline uppercase">Investor</span>
+</div>
+<p class="font-body text-xs text-on-surface-variant leading-relaxed">"The risk mitigation layer on Quant-X looks promising. Would love to see the stress-test data for Q3."</p>
+<span class="font-label text-[9px] text-outline-variant uppercase mt-2 block">2 hours ago • Project: Quant-X</span>
+</div>
+</div>
+<!-- Comment 2 -->
+<div class="flex gap-4">
+<div class="w-10 h-10 bg-secondary-container rounded-full flex items-center justify-center flex-shrink-0">
+<span class="font-headline text-sm font-bold text-on-secondary-container">JS</span>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-body text-sm font-bold text-primary">James Sterling</span>
+<span class="font-label text-[10px] text-outline uppercase">Tech Lead</span>
+</div>
+<p class="font-body text-xs text-on-surface-variant leading-relaxed">"Updated the documentation for the API endpoints. Deployment scheduled for midnight."</p>
+<span class="font-label text-[9px] text-outline-variant uppercase mt-2 block">5 hours ago • Project: Lumina</span>
+</div>
+</div>
+<!-- Comment 3 -->
+<div class="flex gap-4">
+<img alt="Investor avatar" class="w-10 h-10 rounded-full flex-shrink-0" data-alt="Portrait of a male partner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDENGU-ACTK4LoLxQOIdY-seoPaLKZYLRMLfMoBc_f8kVdRoXgVBohPt8YpR3hzAvqqb7irw4Strg4FSRg853upW2KWOu-XPj8VZvXVzfFba1Xytmmf3_8ts2d3tWFtOfMb_FQH80CkbZQNFK0zkL6c-UMY5NO5wU3T1kMTDksvXZAsJqVHfoCY_Ux2IUUvKrfJK94hXqn3J8SIsFUMFxdZPm1psRZy9TvvYRuWPTv1BvkaYQgnBdqrbZIttpTmuNsKQmjjdKgFEzKF"/>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-body text-sm font-bold text-primary">Marcus Thorne</span>
+<span class="font-label text-[10px] text-outline uppercase">Partner</span>
+</div>
+<p class="font-body text-xs text-on-surface-variant leading-relaxed">"Eco-Logistics is gaining traction in the Nordics. Let's discuss expansion on Friday."</p>
+<span class="font-label text-[9px] text-outline-variant uppercase mt-2 block">Yesterday • Project: Eco-Logistics</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 bg-surface-container-high rounded-lg font-body text-sm font-semibold text-primary hover:bg-surface-variant transition-colors">
+                            View All Messages
+                        </button>
+</div>
+<!-- Impact Metric Card -->
+<div class="bg-primary p-8 rounded-xl text-white relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full -mr-16 -mt-16"></div>
+<div class="relative z-10">
+<span class="font-label text-[10px] font-bold uppercase tracking-widest text-primary-fixed-dim block mb-4">Total Idea Impact</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline text-6xl font-extrabold tracking-tight">8.4</span>
+<span class="font-body text-sm text-primary-fixed-dim">/ 10</span>
+</div>
+<p class="mt-4 font-body text-xs text-primary-fixed-dim leading-relaxed">Your ecosystem quality is in the top 5% of active entrepreneurs this month.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
