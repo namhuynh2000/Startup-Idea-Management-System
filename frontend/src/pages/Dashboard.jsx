@@ -10,7 +10,6 @@ import simsDashboardFeedback2 from '../assets/sims_dashboard_feedback_2.jpg';
 const Dashboard = () => {
   useEffect(() => {
     const head = document.head;
-    
     const ensureLink = (id, href) => {
       if (document.getElementById(id)) return;
       const link = document.createElement('link');
