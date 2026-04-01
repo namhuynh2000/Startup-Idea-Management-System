@@ -25,6 +25,7 @@ const Navbar = () => {
   if (hideNavbar) {
     return null;
   }
+  
 
   return (
     <nav className="bg-white sticky top-0 z-50 w-full">
@@ -67,8 +68,10 @@ const Navbar = () => {
       </nav> */}
       {/* Top navigation specific to dashboard */}
 
-      <div className="flex justify-between items-center w-full px-6 py-3 max-w-full">
-        <div className="flex items-center gap-8">
+      <div className="flex justify-between items-center w-full px-6 py-3 max-w-full cursor-pointer">
+        <div onClick={()=>{
+          navigate("/dashboard")
+        }} className="flex items-center gap-8">
           <span className="text-xl font-bold tracking-tight text-blue-950 font-headline">
             SIMS
           </span>

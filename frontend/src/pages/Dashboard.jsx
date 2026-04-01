@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import axiosInstance from '../axiosConfig';
 
-import simsDashboardAvatar from '../assets/sims_dashboard_avatar.jpg';
 import simsDashboardProject1 from '../assets/sims_dashboard_project_1.jpg';
 import simsDashboardProject2 from '../assets/sims_dashboard_project_2.jpg';
 import simsDashboardProject3 from '../assets/sims_dashboard_project_3.jpg';
@@ -63,8 +62,7 @@ const Dashboard = () => {
   return (
     <div className="w-full text-[#191b22] flex-1 p-6 md:p-10 lg:p-16 min-h-screen">
       <style>
-        {`.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;}
-          .font-headline{font-family:'Manrope',sans-serif;}`}
+        {`.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;}`}
       </style>
       {/* Header section */}
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
@@ -115,6 +113,7 @@ const Dashboard = () => {
               ];
               const imgPlaceholders = [simsDashboardProject1, simsDashboardProject2, simsDashboardProject3];
 
+
               const colorIndex = index % bgColors.length;
               const imgIndex = index % imgPlaceholders.length;
               const fundingGoal = project.fundingGoal || 1;
@@ -122,7 +121,11 @@ const Dashboard = () => {
               const progress = Math.min(100, Math.round((currentFunding / fundingGoal) * 100));
 
               return (
-                <article key={project._id || index} className="bg-white p-6 rounded-xl flex flex-col md:flex-row gap-6 relative overflow-hidden mb-6">
+                <article
+                  key={project._id || index}
+                  className="bg-white p-6 rounded-xl flex flex-col md:flex-row gap-6 relative overflow-hidden mb-6 cursor-pointer hover:shadow-lg transition-shadow"
+                  onClick={() => navigate(`/project/${project._id || index}`)}
+                >
                   <div className={`absolute left-0 top-0 bottom-0 w-1 ${bgColors[colorIndex]}`} />
                   <div className="w-full md:w-48 h-32 rounded-lg overflow-hidden flex-shrink-0">
                     <img

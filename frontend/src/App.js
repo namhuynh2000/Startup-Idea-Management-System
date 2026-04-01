@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
+import ProjectDetail from "./pages/ProjectDetail";
 import Tasks from "./pages/Tasks";
 import Dashboard from "./pages/Dashboard";
 import CreateProject from "./pages/CreateProject";
@@ -15,10 +16,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/create-project" element={<CreateProject />} />
-          <Route path="/tasks" element={<Tasks />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/create-project" element={<CreateProject />} />
+        <Route path="/project/:id" element={<ProjectDetail />} />
+        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );
