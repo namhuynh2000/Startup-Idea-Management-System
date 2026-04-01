@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.e8488ca4.css",
-    "main.js": "/static/js/main.a1371545.js",
+    "main.css": "/static/css/main.0a19a195.css",
+    "main.js": "/static/js/main.3500fe7d.js",
     "static/media/sims_register_portrait_2.jpg": "/static/media/sims_register_portrait_2.39900cfa2eed5476237e.jpg",
     "static/media/sims_register_portrait_3.jpg": "/static/media/sims_register_portrait_3.1c364729d4d2c047813d.jpg",
     "static/media/sims_register_portrait_1.jpg": "/static/media/sims_register_portrait_1.1540a252a6da253782b8.jpg",
@@ -9,12 +9,18 @@
     "static/media/sims_login_portrait_3.jpg": "/static/media/sims_login_portrait_3.7f355cd63a2422a685f2.jpg",
     "static/media/sims_login_portrait_2.jpg": "/static/media/sims_login_portrait_2.533b9013ea8296781c21.jpg",
     "static/media/sims_login_bg.jpg": "/static/media/sims_login_bg.30015360024e00de7633.jpg",
+    "static/media/sims_dashboard_project_3.jpg": "/static/media/sims_dashboard_project_3.b45a8a0b60cb6d8c874c.jpg",
+    "static/media/sims_dashboard_feedback_2.jpg": "/static/media/sims_dashboard_feedback_2.8b6111270df6e9bf7736.jpg",
+    "static/media/sims_dashboard_feedback_1.jpg": "/static/media/sims_dashboard_feedback_1.67d0f543a1bc2d07db7b.jpg",
+    "static/media/sims_dashboard_avatar.jpg": "/static/media/sims_dashboard_avatar.e489982a1e445b0138fc.jpg",
+    "static/media/sims_dashboard_project_1.jpg": "/static/media/sims_dashboard_project_1.cca886e54c7000d57806.jpg",
+    "static/media/sims_dashboard_project_2.jpg": "/static/media/sims_dashboard_project_2.711961a1eea15806dee4.jpg",
     "index.html": "/index.html",
-    "main.e8488ca4.css.map": "/static/css/main.e8488ca4.css.map",
-    "main.a1371545.js.map": "/static/js/main.a1371545.js.map"
+    "main.0a19a195.css.map": "/static/css/main.0a19a195.css.map",
+    "main.3500fe7d.js.map": "/static/js/main.3500fe7d.js.map"
   },
   "entrypoints": [
-    "static/css/main.e8488ca4.css",
-    "static/js/main.a1371545.js"
+    "static/css/main.0a19a195.css",
+    "static/js/main.3500fe7d.js"
   ]
 }
