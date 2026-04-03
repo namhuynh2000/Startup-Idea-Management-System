@@ -1,12 +1,19 @@
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useState, useRef, useEffect } from "react";
-import simsDashboardAvatar from "../assets/sims_dashboard_avatar.jpg";
 
 const Navbar = () => {
-  const { user, logout } = useAuth();
+  const { logout, user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+
+  const getAvatarInitials = () => {
+    const name = user?.name?.trim();
+    if (!name) return 'U';
+    const parts = name.split(' ').filter(Boolean);
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  };
   const hideNavbar = ["/login", "/register"].includes(location.pathname);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
@@ -67,23 +74,52 @@ const Navbar = () => {
       </nav> */}
       {/* Top navigation specific to dashboard */}
 
-      <div className="flex justify-between items-center w-full px-6 py-3 max-w-full">
+      <div className="flex justify-between items-center w-full px-6 py-3 max-w-full cursor-pointer">
         <div className="flex items-center gap-8">
-          <span className="text-xl font-bold tracking-tight text-blue-950 font-headline">
+          <span
+            onClick={() => {
+              navigate(user?.role === 'admin' ? '/admin' : '/dashboard');
+            }}
+            className="text-xl font-bold tracking-tight text-blue-950 font-headline"
+          >
             SIMS
           </span>
           <nav className="hidden md:flex items-center gap-6">
-            <button
-              onClick={() => navigate("/dashboard")}
-              className="text-blue-900 font-semibold border-b-2 border-blue-900 pb-1 text-sm"
-            >
-              Dashboard
-            </button>
-            <button
-              onClick={() => navigate("/marketplace")}
-            className="text-slate-500 hover:text-blue-800 transition-colors text-sm">
-              Marketplace
-            </button>
+            {user?.role === 'admin' ? (
+              <button
+                onClick={() => navigate('/admin')}
+                className={`font-semibold pb-1 text-sm transition-colors ${
+                  location.pathname === '/admin'
+                    ? 'text-blue-900 border-b-2 border-blue-900'
+                    : 'text-slate-500 hover:text-blue-800'
+                }`}
+              >
+                Admin
+              </button>
+            ) : (
+              <>
+                <button
+                  onClick={() => navigate('/dashboard')}
+                  className={`font-semibold pb-1 text-sm transition-colors ${
+                    location.pathname === '/dashboard'
+                      ? 'text-blue-900 border-b-2 border-blue-900'
+                      : 'text-slate-500 hover:text-blue-800'
+                  }`}
+                >
+                  Dashboard
+                </button>
+                <button
+                  onClick={() => navigate('/marketplace')}
+                  className={`font-semibold pb-1 text-sm transition-colors ${
+                    location.pathname === '/marketplace'
+                      ? 'text-blue-900 border-b-2 border-blue-900'
+                      : 'text-slate-500 hover:text-blue-800'
+                  }`}
+                >
+                  Marketplace
+                </button>
+              </>
+            )}
           </nav>
         </div>
 
@@ -114,13 +150,9 @@ const Navbar = () => {
             <button
               type="button"
               onClick={() => setIsMenuOpen((prev) => !prev)}
-              className="w-8 h-8 rounded-full border border-[#e1e2eb] overflow-hidden"
+              className="w-8 h-8 rounded-full border border-[#e1e2eb] overflow-hidden bg-gradient-to-br from-[#006D77] to-[#002B5B] text-white flex items-center justify-center font-bold"
             >
-              <img
-                alt="User profile avatar"
-                className="w-full h-full object-cover"
-                src={simsDashboardAvatar}
-              />
+              <span className="text-xs">{getAvatarInitials()}</span>
             </button>
             {isMenuOpen && (
               <div className="absolute right-0 mt-2 w-44 bg-white border border-slate-200 rounded-lg shadow-lg z-20">

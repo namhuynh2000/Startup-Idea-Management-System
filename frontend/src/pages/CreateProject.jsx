@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { useAuth } from '../context/AuthContext';
 import axiosInstance from '../axiosConfig';
 
@@ -8,10 +9,13 @@ const CreateProject = () => {
   const { user } = useAuth();
   const [projectName, setProjectName] = useState('');
   const [category, setCategory] = useState('AI');
+  const [type, setType] = useState('public');
   const [description, setDescription] = useState('');
   const [fundingGoal, setFundingGoal] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+  const [imagePreview, setImagePreview] = useState('');
 
   useEffect(() => {
     const head = document.head;
@@ -37,11 +41,75 @@ const CreateProject = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
 
+  const compressImage = (base64String, maxWidth = 1200, maxHeight = 800) => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.src = base64String;
+      
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let width = img.width;
+        let height = img.height;
+
+        // Calculate new dimensions
+        if (width > height) {
+          if (width > maxWidth) {
+            height = Math.round((height * maxWidth) / width);
+            width = maxWidth;
+          }
+        } else {
+          if (height > maxHeight) {
+            width = Math.round((width * maxHeight) / height);
+            height = maxHeight;
+          }
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+
+        // Compress to JPEG with quality 0.8
+        const compressedBase64 = canvas.toDataURL('image/jpeg', 0.8);
+        resolve(compressedBase64);
+      };
+
+      img.onerror = () => {
+        resolve(base64String); // Return original if compression fails
+      };
+    });
+  };
+
+  const handleImageChange = async (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      // Check file size (max 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        toast.error('Image size must be less than 5MB');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onloadend = async () => {
+        try {
+          const compressed = await compressImage(reader.result);
+          setImageUrl(compressed);
+          setImagePreview(compressed);
+          toast.success('Image uploaded (compressed for optimal storage)');
+        } catch (err) {
+          toast.error('Failed to process image');
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleCreate = async (e) => {
     e.preventDefault();
 
     if (!user?.token) {
-      alert('Please login first');
+      toast.error('Please login first');
       navigate('/login');
       return;
     }
@@ -55,17 +123,19 @@ const CreateProject = () => {
         {
           name: projectName,
           category,
+          type,
           description,
           fundingGoal: Number(fundingGoal),
           startDate,
           endDate,
+          imageUrl: imageUrl || null,
         },
         {
           headers: { Authorization: `Bearer ${user.token}` },
         }
       );
 
-      alert('Project created successfully!');
+      toast.success('Project created successfully!');
       console.log('Created project', response.data);
       navigate('/dashboard');
     } catch (err) {
@@ -141,6 +211,36 @@ const CreateProject = () => {
                 </div>
               </div>
 
+              <div>
+                <p className="mb-2 text-sm font-bold text-[#001736]">Type</p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {['public', 'private', 'hybrid'].map((mode) => (
+                    <button
+                      type="button"
+                      key={mode}
+                      onClick={() => setType(mode)}
+                      className={`rounded-xl border p-4 text-left transition ${
+                        type === mode
+                          ? 'border-[#002b5b] bg-[#e4f2ff] shadow'
+                          : 'border-[#e7e7f0] bg-white hover:border-[#006a64] hover:bg-[#f3f8fd]'
+                      }`}
+                    >
+                      <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#f3f4f6] mb-2">
+                        <span className="material-symbols-outlined text-sm">{mode === 'public' ? 'public' : mode === 'private' ? 'lock' : 'layers'}</span>
+                      </span>
+                      <h3 className="font-bold text-[#001736] capitalize">{mode}</h3>
+                      <p className="text-xs text-[#747780] mt-1">
+                        {mode === 'public'
+                          ? 'Community round, open access and high visibility.'
+                          : mode === 'private'
+                          ? 'Secure, invite-only investment channel.'
+                          : 'Hybrid capital strategy with institutional and community mix.'}
+                      </p>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-sm font-bold text-[#001736] mb-2">Start Date</label>
@@ -199,6 +299,47 @@ const CreateProject = () => {
                 />
               </div>
 
+              <div>
+                <label className="block text-sm font-bold text-[#001736] mb-2">Project Image</label>
+                <div className="mb-4 rounded-lg overflow-hidden max-w-xs bg-white relative">
+                  {imagePreview ? (
+                    <>
+                      <img
+                        src={imagePreview}
+                        alt="Project"
+                        className="w-full h-40 object-cover"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => { setImageUrl(''); setImagePreview(''); }}
+                        className="absolute top-2 right-2 bg-white text-[#ba1a1a] border border-[#f3c2c2] rounded-full p-1 hover:bg-[#fde7e7] transition"
+                        aria-label="Remove image"
+                      >
+                        ✕
+                      </button>
+                    </>
+                  ) : (
+                    <div className="h-40 grid place-items-center text-[#747780] text-sm font-medium border border-dashed border-[#e7e7f0]">
+                      No image selected
+                    </div>
+                  )}
+                </div>
+                <div className="border-2 border-dashed border-[#e7e7f0] rounded-lg p-6 text-center hover:border-[#006a64] transition-colors cursor-pointer">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                    className="hidden"
+                    id="image-input"
+                  />
+                  <label htmlFor="image-input" className="cursor-pointer">
+                    <span className="material-symbols-outlined text-4xl text-[#006a64] mb-2 block">image</span>
+                    <p className="text-sm font-semibold text-[#001736]">Click to upload image</p>
+                    <p className="text-xs text-[#747780] mt-1">PNG, JPG up to 5MB (will be compressed automatically)</p>
+                  </label>
+                </div>
+              </div>
+
               <div className="flex flex-col sm:flex-row justify-end items-center gap-3">
                 <button
                   type="button"
@@ -220,6 +361,22 @@ const CreateProject = () => {
 
           <aside className="lg:col-span-4 bg-white rounded-2xl shadow-sm border border-[#e7e7f0] p-6 md:p-8">
             <h3 className="font-headline text-lg font-bold text-[#001736] mb-4">Project Preview</h3>
+
+           <div className="mb-4 rounded-xl overflow-hidden border border-[#e7e7f0] bg-white">
+              {imagePreview ? (
+                <div>
+                  <img
+                    src={imagePreview}
+                    alt="Project preview"
+                    className="w-full h-40 object-cover"
+                  />
+                </div>
+              ) : (
+                <div className="h-40 grid place-items-center text-[#747780] text-sm font-medium bg-[#f8f9fc]">
+                  No image selected
+                </div>
+              )}
+            </div>
 
             <div className="bg-[#f8f9fc] p-4 rounded-xl border border-[#e7e7f0]">
               <p className="text-xs uppercase tracking-wider text-[#747780] font-bold mb-2">Category</p>
