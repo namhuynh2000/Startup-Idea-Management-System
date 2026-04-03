@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import axiosInstance from "../axiosConfig";
 
 import simsPortrait1 from "../assets/sims_register_portrait_1.jpg";
@@ -44,14 +45,22 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (role === "investor") {
+      toast.info("Investor functionality is coming soon! Please register as an entrepreneur for now.");
+      return;
+    }
+
     setLoading(true);
     try {
-      // Backend expects { name, email, password }.
-      await axiosInstance.post("/api/auth/register", formData);
-      alert("Registration successful. Please log in.");
-      navigate("/login");
+      await axiosInstance.post("/api/auth/register", {
+        ...formData,
+        role,
+      });
+      toast.success("Registration successful. Please log in.");
+      navigate('/login');
     } catch (error) {
-      alert("Registration failed. Please try again.");
+      toast.error("Registration failed. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -60,9 +69,15 @@ const Register = () => {
   const note =
     role === "investor"
       ? {
-          title: "Investor Note:",
-          p1: "Your institutional account will require manual activation by our editorial board (24-48h).",
-          p2: "Entrepreneurs: You can start building your first idea pipeline immediately after email verification.",
+          title: "Coming Soon:",
+          p1: "Investor functionality is currently under development and will be available soon.",
+          p2: "Please register as an entrepreneur to start building your ideas today!",
+        }
+      : role === "admin"
+      ? {
+          title: "Admin Note:",
+          p1: "Admin accounts will be verified manually to ensure proper access control.",
+          p2: "Only authorized users can register as admins.",
         }
       : {
           title: "Entrepreneur Note:",
@@ -143,79 +158,56 @@ const Register = () => {
                 <form className="space-y-8" onSubmit={handleSubmit}>
                   {/* Role Selection */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <label className="cursor-pointer group">
-                      <input
-                        className="peer hidden"
-                        name="role"
-                        type="radio"
-                        value="entrepreneur"
-                        checked={role === "entrepreneur"}
-                        onChange={() => setRole("entrepreneur")}
-                      />
-                      <div
-                        className={
-                          role === "entrepreneur"
-                            ? "p-6 rounded-xl bg-[#006f69] text-white"
-                            : "p-6 rounded-xl bg-[#f3f3fc] text-[#001736]"
-                        }
-                      >
-                        <div className="flex items-center gap-3 mb-2">
-                          <span
-                            className="material-symbols-outlined"
-                            style={{
-                              fontVariationSettings: "'FILL' 1",
-                              color:
-                                role === "entrepreneur" ? "#ffffff" : "#006a64",
-                            }}
-                          >
-                            rocket_launch
-                          </span>
-                          <span className="font-bold">
-                            {role === "entrepreneur"
-                              ? "Entrepreneur"
-                              : "Entrepreneur"}
-                          </span>
+                    {[
+                      { value: "entrepreneur", label: "Entrepreneur", icon: "rocket_launch", desc: "Launch projects and gain traction immediately." },
+                      { value: "investor", label: "Investor", icon: "account_balance", desc: "Access curated deals and editorial intelligence." },
+                      { value: "admin", label: "Admin", icon: "admin_panel_settings", desc: "Manage platform and oversee all activities." },
+                    ].map((opt) => (
+                      <label key={opt.value} className="cursor-pointer group">
+                        <input
+                          className="peer hidden"
+                          name="role"
+                          type="radio"
+                          value={opt.value}
+                          checked={role === opt.value}
+                          onChange={() => setRole(opt.value)}
+                        />
+                        <div
+                          className={
+                            role === opt.value
+                              ? opt.value === "entrepreneur"
+                                ? "p-6 rounded-xl bg-[#006f69] text-white"
+                                : opt.value === "investor"
+                                ? "p-6 rounded-xl bg-[#002b5b] text-white"
+                                : "p-6 rounded-xl bg-[#8b4513] text-white"
+                              : "p-6 rounded-xl bg-[#f3f3fc] text-[#001736]"
+                          }
+                        >
+                          <div className="flex items-center gap-3 mb-2">
+                            <span
+                              className="material-symbols-outlined"
+                              style={{
+                                fontVariationSettings: "'FILL' 1",
+                                color:
+                                  role === opt.value
+                                    ? "#ffffff"
+                                    : opt.value === "entrepreneur"
+                                    ? "#006a64"
+                                    : opt.value === "investor"
+                                    ? "#001736"
+                                    : "#8b4513",
+                              }}
+                            >
+                              {opt.icon}
+                            </span>
+                            <span className="font-bold">{opt.label}</span>
+                          </div>
+                          <p className="text-[11px] leading-tight">
+                            {opt.desc}
+                          </p>
                         </div>
-                        <p className="text-[11px] leading-tight">
-                          Launch projects and gain traction immediately.
-                        </p>
-                      </div>
-                    </label>
-
-                    <label className="cursor-pointer group">
-                      <input
-                        className="peer hidden"
-                        name="role"
-                        type="radio"
-                        value="investor"
-                        checked={role === "investor"}
-                        onChange={() => setRole("investor")}
-                      />
-                      <div
-                        className={
-                          role === "investor"
-                            ? "p-6 rounded-xl bg-[#002b5b] text-white"
-                            : "p-6 rounded-xl bg-[#f3f3fc] text-[#001736]"
-                        }
-                      >
-                        <div className="flex items-center gap-3 mb-2">
-                          <span
-                            className="material-symbols-outlined"
-                            style={{
-                              fontVariationSettings: "'FILL' 1",
-                              color:
-                                role === "investor" ? "#ffffff" : "#001736",
-                            }}
-                          >
-                            account_balance
-                          </span>
-                          <span className="font-bold">Investor</span>
-                        </div>
-                        <p className="text-[11px] leading-tight">
-                          Access curated deals and editorial intelligence.
-                        </p>
-                      </div>
-                    </label>
+                      </label>
+                    ))}
                   </div>
 
                   {/* Fields */}
@@ -325,7 +317,7 @@ const Register = () => {
                   <button
                     className="w-full py-4 bg-gradient-to-r from-[#001736] to-[#002b5b] text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all active:scale-95 uppercase tracking-widest text-xs disabled:opacity-60"
                     type="submit"
-                    disabled={loading}
+                    disabled={loading || role === "investor"}
                   >
                     {loading ? "Creating..." : "Create Intelligence Account"}
                   </button>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import axiosInstance from "../axiosConfig";
 import { useAuth } from "../context/AuthContext";
 
@@ -44,9 +45,15 @@ const Login = () => {
     try {
       const response = await axiosInstance.post("/api/auth/login", formData);
       login(response.data);
-      navigate("/dashboard");
+      
+      // Redirect based on role
+      if (response.data.role === 'admin') {
+        navigate('/admin');
+      } else {
+        navigate('/dashboard');
+      }
     } catch (error) {
-      alert("Login failed. Please try again.");
+      toast.error("Login failed. Please try again.");
     }
   };
 
