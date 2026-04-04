@@ -82,9 +82,6 @@ jobs:
       with:
         node-version: '22'
 
-    - name: Stop PM2 Processes
-      run: pm2 stop all
-
     - name: Download Frontend Build
       uses: actions/download-artifact@v4
       with:
@@ -101,7 +98,10 @@ jobs:
         touch .env
         echo "${{ secrets.PROD }}" > .env
 
-    - name: Start and Restart Services in AWS
+    - name: Stop PM2 Processes
+      run: pm2 stop all || true
+
+    - name: Start/Deploy Application
       run: |
-        pm2 start all
-        pm2 restart all
+        pm2 start ecosystem.config.js || pm2 start ./backend/server.js --name "backend"
+        pm2 restart all || true
