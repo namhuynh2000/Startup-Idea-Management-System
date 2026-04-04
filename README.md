@@ -1,4 +1,17 @@
-# Full-Stack CRUD Application Project
+# Full-Stack CRUD Application Project (Startup Idea Management System)
+
+## Assessment 1.2 - Grading Information
+
+To facilitate the marking process, please find the deployment details and access credentials below:
+
+- **Public URL:** http://13.238.143.10/ *(Replace with your actual public IP if it has changed)*
+- **User Access Credentials:**
+  - **Email/Username:** user@user.com
+  - **Password:** 1
+- **Admin Access Credentials:**
+  - **Email/Username:** admin@admin.com
+  - **Password:** 1
+  
 
 ## Overview
 
