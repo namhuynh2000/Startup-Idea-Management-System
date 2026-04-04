@@ -11,6 +11,7 @@ import Dashboard from "./pages/Dashboard";
 import CreateProject from "./pages/CreateProject";
 import Marketplace from "./pages/Marketplace";
 import Navbar from "./components/Navbar";
+import { RootRoute, AuthRoute } from "./components/ProtectedRoutes";
 
 function App() {
   return (
@@ -29,9 +30,9 @@ function App() {
         theme="light"
       />
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<RootRoute><div /></RootRoute>} />
+        <Route path="/login" element={<AuthRoute><Login /></AuthRoute>} />
+        <Route path="/register" element={<AuthRoute><Register /></AuthRoute>} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/create-project" element={<CreateProject />} />
         <Route path="/project/:id" element={<ProjectDetail />} />

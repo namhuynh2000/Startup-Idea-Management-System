@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axiosInstance from "../axiosConfig";
+import { useAuth } from "../context/AuthContext";
 
 import simsPortrait1 from "../assets/sims_register_portrait_1.jpg";
 import simsPortrait2 from "../assets/sims_register_portrait_2.jpg";
@@ -19,6 +20,7 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   useEffect(() => {
     // Load fonts + Material Symbols icons (mirrors the Stitch export).
@@ -53,12 +55,22 @@ const Register = () => {
 
     setLoading(true);
     try {
-      await axiosInstance.post("/api/auth/register", {
+      const response = await axiosInstance.post("/api/auth/register", {
         ...formData,
         role,
       });
-      toast.success("Registration successful. Please log in.");
-      navigate('/login');
+      
+      // Login user dengan data từ response
+      login(response.data);
+      
+      toast.success("Registration successful. Redirecting...");
+      
+      // Redirect based on role
+      if (response.data.role === 'admin') {
+        navigate('/admin');
+      } else {
+        navigate('/dashboard');
+      }
     } catch (error) {
       toast.error("Registration failed. Please try again.");
     } finally {
