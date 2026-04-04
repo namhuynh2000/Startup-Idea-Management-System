@@ -93,7 +93,7 @@ const deleteProject = async (req, res) => {
       return res.status(403).json({ message: 'Not authorized' });
     }
 
-    await project.remove();
+    await project.deleteOne();
     res.json({ message: 'Project deleted' });
   } catch (error) {
     res.status(500).json({ message: error.message });
