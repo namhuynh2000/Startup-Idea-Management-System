@@ -103,5 +103,5 @@ jobs:
 
     - name: Start/Deploy Application
       run: |
-        pm2 start ecosystem.config.js || pm2 start ./backend/server.js --name "sampleapp-backend"
+        pm2 start ecosystem.config.js || pm2 start ./backend/server.js --name "backend"
         pm2 restart all || true
