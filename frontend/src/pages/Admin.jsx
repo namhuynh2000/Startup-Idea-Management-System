@@ -133,10 +133,6 @@ const Admin = () => {
     }
   };
 
-  const handleLogout = () => {
-    logout();
-    navigate('/login');
-  };
 
   const formatDate = (date) => {
     return new Date(date).toLocaleString('en-US', {
