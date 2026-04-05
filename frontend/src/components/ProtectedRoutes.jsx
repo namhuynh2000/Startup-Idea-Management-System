@@ -4,12 +4,12 @@ import { useAuth } from '../context/AuthContext';
 export const RootRoute = ({ children }) => {
   const { user } = useAuth();
 
-  // Nếu chưa đăng nhập, redirect đến /login
+  // If not logged in, redirect to /login
   if (!user || !user.token) {
     return <Navigate to="/login" replace />;
   }
 
-  // Nếu đã đăng nhập, kiểm tra role
+  // If logged in, check role for redirection
   if (user.role === 'admin') {
     return <Navigate to="/admin" replace />;
   }
@@ -25,12 +25,12 @@ export const RootRoute = ({ children }) => {
 export const AuthRoute = ({ children }) => {
   const { user } = useAuth();
 
-  // Nếu chưa đăng nhập, cho phép truy cập trang login/register
+  // If not logged in, allow access to login/register pages
   if (!user || !user.token) {
     return children;
   }
 
-  // Nếu đã đăng nhập, kiểm tra role và redirect
+  // If already logged in, check role and redirect accordingly
   if (user.role === 'admin') {
     return <Navigate to="/admin" replace />;
   }
