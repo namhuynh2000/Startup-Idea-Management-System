@@ -4,7 +4,7 @@
 
 To facilitate the marking process, please find the deployment details and access credentials below:
 
-- **Public URL:** http://3.107.95.221/ *(Replace with your actual public IP if it has changed)*
+- **Public URL:** http://3.24.15.154/
 - **User Access Credentials:**
   - **Email/Username:** user@user.com
   - **Password:** 1
